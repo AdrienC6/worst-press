@@ -20,12 +20,11 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
+    App\Infrastructure\Repository\Doctrine\DoctrinePostRepository:
+        arguments:
+            $entityManager: '@doctrine.orm.entity_manager'
+
+    App\Application\Port\PostRepository: '@App\Infrastructure\Repository\Doctrine\DoctrinePostRepository'
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-    App\Command\Handler\:
-        resource: '../src/Command/Handler/'
-        tags: [ { name: 'messenger.message_handler', bus: 'command.bus' } ]
-
-    App\Query\Handler\:
-        resource: '../src/Query/Handler/'
-        tags: [ { name: 'messenger.message_handler', bus: 'query.bus' } ]

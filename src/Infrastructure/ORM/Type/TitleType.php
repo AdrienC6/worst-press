@@ -8,6 +8,7 @@ use Doctrine\DBAL\Types\Type;
 
 class TitleType extends Type
 {
+    public const string NAME = 'title';
     public function getSQLDeclaration(array $column, AbstractPlatform $platform): string
     {
         return 'VARCHAR(255)';
@@ -15,17 +16,11 @@ class TitleType extends Type
 
     public function getName(): string
     {
-        return 'title';
+        return self::NAME;
     }
 
     public function convertToPHPValue($value, AbstractPlatform $platform): PostTitle
     {
         return new PostTitle($value);
-    }
-
-    public function convertToDatabaseValue($value, AbstractPlatform $platform)
-    {
-        /** @var PostTitle $value */
-        return $value->getValue();
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\Repository\Doctrine\Repository;
+namespace App\Infrastructure\Repository\Doctrine;
 
 use App\Application\Port\PostRepository;
 use App\Domain\Model\Post;

@@ -1,6 +1,0 @@
-App\Domain\Model\Post:
-  type: entity
-  table: posts
-  fields:
-    title:
-      type: title

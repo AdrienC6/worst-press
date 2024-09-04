@@ -4,6 +4,7 @@ namespace App\Application\Handler;
 
 use App\Application\Port\PostRepository;
 use App\Application\Query\GetPostByTitleQuery;
+use App\Domain\Model\Post;
 
 class GetPostByTitleHandler
 {
@@ -14,8 +15,8 @@ class GetPostByTitleHandler
         $this->postRepository = $postRepository;
     }
 
-    public function handle(GetPostByTitleQuery $query)
+    public function handle(GetPostByTitleQuery $query): ?Post
     {
-        return $this->postRepository->findOneBy(['title' => $query->title]);
+        return $this->postRepository->findOneBy(['title' => $query->title], []);
     }
 }
