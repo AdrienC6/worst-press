@@ -2,7 +2,14 @@
 
 namespace App\Application\DTO;
 
-class PostDTO
+use App\Domain\Model\Post;
+
+class PostDTO implements DTOInterface
 {
     public string $title;
+
+    public function getModelClassName(): string
+    {
+        return Post::class;
+    }
 }
